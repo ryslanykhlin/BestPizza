@@ -11623,3 +11623,20 @@ ul.social-footer2 li a {
   }
 }
 
+.menu {
+  margin-top: 50px;
+}
+
+.register {
+  display: flex;
+}
+
+.register form {
+  margin: auto;
+}
+
+.bg_reg {
+  height: calc(100vh - 57px);
+  width: 70%;
+}
+

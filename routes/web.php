@@ -13,10 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Home
 Route::get('/', function () {
     return view('pages.home');
 })->name('home');
 
-Route::get('/catalog', function () {
-    return view('pages.catalog');
-})->name('catalog');
+//catalog
+use App\Http\Controllers\productController;
+Route::get('/catalog',[productController::class, 'index'])->name('catalog');
+
+//Auth
+Route::name('auth.')->group(function () {
+    Route::get('/register',[\App\Http\Controllers\Auth\RegisterController::class, 'index'])->name('register');
+    Route::post('/register',[\App\Http\Controllers\Auth\RegisterController::class, 'register']);
+    Route::get('/sugnin',[\App\Http\Controllers\Auth\SugnInControllerer::class, 'index'])->name('sugnin');
+    Route::post('/sugnin',[\App\Http\Controllers\Auth\SugnInControllerer::class, 'sugnin']);
+});

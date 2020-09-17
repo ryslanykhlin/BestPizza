@@ -11,8 +11,8 @@
                         <li class="nav__li"><a href="{{route('catalog')}}" class="nav__link">Каталог</a></li>
                         <li class="nav__li"><a href="#" class="nav__link">О нас</a></li>
                         <li class="nav__li"><a href="#" class="nav__link">Контакты</a></li>
-                        <li class="nav__li"><a href="#" class="nav__link">Регистрация</a></li>
-                        <li class="nav__li"><a href="#" class="nav__link">Авторизация</a></li>
+                        <li class="nav__li"><a href="{{route('auth.register')}}" class="nav__link">Регистрация</a></li>
+                        <li class="nav__li"><a href="{{route('auth.sugnin')}}" class="nav__link">Авторизация</a></li>
                     </ul>
                     <div class="nav__burger">
                         <div></div>

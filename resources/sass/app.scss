@@ -38,3 +38,16 @@
 @import "part/home";
 @import "part/Navbar";
 
+.menu{
+    margin-top: 50px;
+}
+.register{
+    display: flex;
+    form{
+        margin: auto;
+    }
+}
+.bg_reg{
+    height: calc(100vh - 57px);
+    width: 70%;
+}
