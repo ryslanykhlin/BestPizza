@@ -51,3 +51,13 @@
     height: calc(100vh - 57px);
     width: 70%;
 }
+
+.filtre{
+    height: 700px;
+    width: 300px;
+    border: 2px solid gray;
+    &__title{
+        text-align: center;
+        font-size: 36px;
+    }
+}

@@ -19,8 +19,7 @@ Route::get('/', function () {
 })->name('home');
 
 //catalog
-use App\Http\Controllers\productController;
-Route::get('/catalog',[productController::class, 'index'])->name('catalog');
+Route::get('/catalog',[App\Http\Controllers\productController::class, 'index'])->name('catalog');
 
 //Auth
 Route::name('auth.')->group(function () {
@@ -29,3 +28,16 @@ Route::name('auth.')->group(function () {
     Route::get('/sugnin',[\App\Http\Controllers\Auth\SugnInControllerer::class, 'index'])->name('sugnin');
     Route::post('/sugnin',[\App\Http\Controllers\Auth\SugnInControllerer::class, 'sugnin']);
 });
+
+//account
+Route::get('account',[\App\Http\Controllers\accountController::class, 'index'])
+    ->middleware('auth')
+    ->name('account');
+
+//adminPanel
+Route::get('/admin',function (){
+    return view('pages.adminpanel');
+})->middleware('checkisAdmin')->name('admin');
+Route::post('/admin/addpizza',[App\Http\Controllers\productController::class, 'addProduct'])
+    ->middleware('checkisAdmin')
+    ->name('addpizza');

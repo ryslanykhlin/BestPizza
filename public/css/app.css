@@ -11640,3 +11640,14 @@ ul.social-footer2 li a {
   width: 70%;
 }
 
+.filtre {
+  height: 700px;
+  width: 300px;
+  border: 2px solid gray;
+}
+
+.filtre__title {
+  text-align: center;
+  font-size: 36px;
+}
+

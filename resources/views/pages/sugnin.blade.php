@@ -2,7 +2,7 @@
 @section('content')
     @include('part.navbar')
     <section class="register">
-        <img class="bg_reg" src="https://s2.best-wallpaper.net/wallpaper/2560x1600/1809/Pizza-pie-tomatoes-oil_2560x1600.jpg" alt="img">
+        <img class="bg_reg" src="https://st.frendi.ru/cfs25/deal_offer/07/58/07588d5ef5f552255c8fe062e482ae1b.jpg" alt="img">
         <form action="{{route('auth.sugnin')}}" method="post" novalidate>
             @csrf
             <div class="form-group">

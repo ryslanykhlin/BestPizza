@@ -12,5 +12,12 @@ class user extends Authenticatable
 
     protected $table = 'users';
 
-    protected $fillable = ['name','email','password','remember_token'];
+    protected $fillable = ['name','email','password','isAdmin'];
+
+    protected $hidden = ['remember__token',];
+
+    public function getisAdmin()
+    {
+        return $this->isAdmin;
+    }
 }

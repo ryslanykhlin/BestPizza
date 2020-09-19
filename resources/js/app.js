@@ -31,4 +31,35 @@ $(document).ready(function () {
     $('.navbar__burger-close').on('click', function () {
         $('.navbar__ul').toggleClass('navbar__burger_active')
     })
+
+    //add basket
+    $('.basket').on('click',function () {
+        if (localStorage.getItem('basket') === null){
+            let basket = [];
+            basket.unshift($(this).data('basket'));
+            localStorage.setItem('basket',JSON.stringify(basket));
+        } else {
+            let basket = JSON.parse(localStorage.getItem('basket'));
+            basket.unshift($(this).data('basket'));
+            localStorage.setItem('basket',JSON.stringify(basket));
+        }
+    })
+
+
+    //basket page
+    JSON.parse(localStorage.getItem('basket')).forEach(function (item,index,arr){
+        console.log(arr);
+        let str = `<tr>
+                <th scope="row">${index}</th>
+                <td>${arr[index]['title']}</td>
+                <td>${arr[index]['price']}</td>
+                <td><a href="/account" type="button" class="btn btn-danger delete-basket" data-delete="${index}">Удалить</a></td>
+            </tr>`;
+        $('.tbode__table').before(str);
+    })
+    $('.delete-basket').on('click',function () {
+        let basket = JSON.parse(localStorage.getItem('basket'));
+        basket.splice($(this).data('delete'),1);
+        localStorage.setItem('basket',JSON.stringify(basket));
+    });
 });

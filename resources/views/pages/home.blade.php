@@ -11,8 +11,18 @@
                         <li class="nav__li"><a href="{{route('catalog')}}" class="nav__link">Каталог</a></li>
                         <li class="nav__li"><a href="#" class="nav__link">О нас</a></li>
                         <li class="nav__li"><a href="#" class="nav__link">Контакты</a></li>
-                        <li class="nav__li"><a href="{{route('auth.register')}}" class="nav__link">Регистрация</a></li>
-                        <li class="nav__li"><a href="{{route('auth.sugnin')}}" class="nav__link">Авторизация</a></li>
+                        @if(!Auth::check())
+                            <li class="navbar__li"><a href="{{route('auth.register')}}"
+                                                      class="navbar__link {{request()->routeIs('auth.register')? 'active_menu' : ''}}">Регистрация</a></li>
+                            <li class="navbar__li"><a href="{{route('auth.sugnin')}}"
+                                                      class="navbar__link {{request()->routeIs('auth.sugnin')? 'active_menu' : ''}}">Авторизация</a></li>
+                        @elseif(Auth::user()->getisAdmin())
+                            <li class="navbar__li"><a href="{{route('admin')}}"
+                                                      class="navbar__link {{request()->routeIs('admin')? 'active_menu' : ''}}">Админ панель</a></li>
+                        @else
+                            <li class="navbar__li"><a href="{{route('account')}}"
+                                                      class="navbar__link {{request()->routeIs('account')? 'active_menu' : ''}}">Аккаунт</a></li>
+                        @endif
                     </ul>
                     <div class="nav__burger">
                         <div></div>
