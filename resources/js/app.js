@@ -62,4 +62,12 @@ $(document).ready(function () {
         basket.splice($(this).data('delete'),1);
         localStorage.setItem('basket',JSON.stringify(basket));
     });
+
+    //removeOrderBtn
+    $('.removeOrderBTN').on('click',function() {
+        axios.post('/removeorder',{
+            'id': $(this).data('id')
+        });
+        location.reload();
+    });
 });

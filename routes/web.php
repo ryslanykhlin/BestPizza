@@ -36,8 +36,17 @@ Route::get('account',[\App\Http\Controllers\accountController::class, 'index'])
 
 //adminPanel
 Route::get('/admin',function (){
-    return view('pages.adminpanel');
+    $orders = \App\Models\orders::all();
+    return view('pages.adminpanel',compact('orders'));
 })->middleware('checkisAdmin')->name('admin');
 Route::post('/admin/addpizza',[App\Http\Controllers\productController::class, 'addProduct'])
     ->middleware('checkisAdmin')
     ->name('addpizza');
+
+//order
+Route::post('/addorder',[\App\Http\Controllers\orderController::class,'index'])
+    ->middleware('auth')
+    ->name('addorder');
+Route::post('/removeorder',[\App\Http\Controllers\orderController::class,'removeorder'])
+    ->middleware('checkisAdmin')
+    ->name('removeorder');

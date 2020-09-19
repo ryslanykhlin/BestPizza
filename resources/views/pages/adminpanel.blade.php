@@ -19,4 +19,34 @@
         </div>
         <button type="submit" class="btn btn-primary">Добавить</button>
     </form>
+    <section class="orders">
+        <div class="container">
+            <h3 style="text-align: center">Заказы</h3>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">№</th>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Телефон</th>
+                    <th scope="col">Коментарий</th>
+                    <th scope="col">Дата</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($orders as $order)
+                    <tr>
+                        <th scope="row">{{$order->id}}</th>
+                        <td>{{$order->name}}</td>
+                        <td>{{$order->tell}}</td>
+                        <td>{{$order->comments}}</td>
+                        <td>{{$order->created_at}}</td>
+                        <td><button type="button" data-id="{{$order->id}}"
+                                    class="btn btn-primary removeOrderBTN">Выполнено</button></td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+    </section>
 @endsection

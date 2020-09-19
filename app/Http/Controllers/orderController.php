@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\orders;
+use App\Models\product;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+class orderController extends Controller
+{
+    public function index(Request $request)
+    {
+        orders::create([
+            'tell' => $request->input('tell'),
+            'name' => $request->input('name'),
+            'adress' => $request->input('adress'),
+            'comments' => $request->input('comments')
+        ]);
+
+        return redirect()->home();
+    }
+
+    public function removeorder(Request $request)
+    {
+        DB::delete('delete from orders where id=?',[$request->input('id')]);
+    }
+}
