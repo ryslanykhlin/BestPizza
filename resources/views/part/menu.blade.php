@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-8">
                 <div class="card-deck">
-                    @foreach($products as $product)
+                    @foreach($products as $index => $product)
                         <div class="card" style="min-width:220px;max-width:220px;margin-bottom: 30px">
                             <img src="https://bigbenny.ru/media/uploads/2017/01/IMG_4810.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
@@ -12,7 +12,11 @@
                             </div>
                             <div class="card-footer">
                                 <small class="text-muted">{{$product->price}} Руб</small>
-                                <button type="button" class="btn btn-success basket" data-basket="{{$product}}">Добавить в корзину</button>
+                                <div class="input-group quantity_goods">
+                                    <input type="number" step="1" min="1" max="10" class="{{'num_count'.$index}}" name="quantity" value="1" title="Qty">
+                                </div>
+                                <button type="button" class="btn btn-success basket"
+                                        data-basket="{{$product}}" data-index="{{$index}}">Добавить в корзину</button>
                             </div>
                         </div>
                     @endforeach
@@ -24,7 +28,7 @@
                     <form action="{{route('catalog')}}" method="get">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Min</label>
-                            <input type="number" name="min" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$_GET['min'] ?? ''}}>
+                            <input type="number" name="min" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$_GET['min'] ?? ''}}">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Max</label>

@@ -17,9 +17,9 @@ class checkisAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->getisAdmin()){
-            return $next($request);
+        if (Auth::guest() || (!Auth::user()->getisAdmin())){
+            return redirect()->home();
         }
-        return redirect()->home();
+        return $next($request);
     }
 }

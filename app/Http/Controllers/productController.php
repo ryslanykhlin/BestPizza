@@ -10,23 +10,18 @@ class productController extends Controller
 {
     public function index(Request $request)
     {
+        //                $products = $filtre->paginate(9)->withPath('?'.preg_replace('/&page=\d/','',$request->getQueryString()));
         $filtre = product::query();
-        if ($request->input('max'))
-        {
+        if ($request->input('max')){
             $filtre->where('price','<=',$request->input('max'));
-            if (isset($_GET['page'])){
-                $products = $filtre->paginate(9)->withPath('?'.preg_replace('/&page=\d/','',$request->getQueryString()));
-            }
-        } else{
-            $products = $filtre->paginate(9);
         }
-        if ($request->input('min'))
-        {
+        if ($request->input('min')){
             $filtre->where('price','>=',$request->input('min'));
-            if (isset($_GET['page'])){
-                $products = $filtre->paginate(9)->withPath('?'.preg_replace('/&page=\d/','',$request->getQueryString()));
-            }
-        } else{
+        }
+        if ($request->input('max') || $request->input('min'))
+        {
+            $products = $filtre->paginate(9)->withPath('?'.preg_replace('/&page=\d/','',$request->getQueryString()));
+        }else {
             $products = $filtre->paginate(9);
         }
         $currentPage = $products->links()->paginator->currentPage();

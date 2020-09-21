@@ -12,9 +12,9 @@
                         <li class="nav__li"><a href="#" class="nav__link">О нас</a></li>
                         <li class="nav__li"><a href="#" class="nav__link">Контакты</a></li>
                         @if(!Auth::check())
-                            <li class="navbar__li"><a href="{{route('auth.register')}}"
+                            <li class="nav__li"><a href="{{route('auth.register')}}"
                                                       class="navbar__link {{request()->routeIs('auth.register')? 'active_menu' : ''}}">Регистрация</a></li>
-                            <li class="navbar__li"><a href="{{route('auth.sugnin')}}"
+                            <li class="nav__li"><a href="{{route('auth.sugnin')}}"
                                                       class="navbar__link {{request()->routeIs('auth.sugnin')? 'active_menu' : ''}}">Авторизация</a></li>
                         @elseif(Auth::user()->getisAdmin())
                             <li class="navbar__li"><a href="{{route('admin')}}"
@@ -45,20 +45,34 @@
     <section class="aboutus">
         <div class="container">
             <div class="row">
-                <div class="col-6">
+                <div class="col-lg-6">
                     <h2 class="aboutus__title">About Us</h2>
                     <p class="aboutus__opt">WELCOME TO
                         MAESTRO PIZZINI</p>
                     <p class="aboutus_descr">Investigationes demonstraverunt lectores legere me lius
                         quod ii legunt saepius. Claritas est etiam processus dynaus,
                         quise sequitur mutationem consuetudium lectorum.</p>
-                    <a href="#" class="button">Подробнее</a>
+                    <a href="#" class="button" style="margin-bottom: 50px;">Подробнее</a>
                 </div>
-                <div class="col-6">
+                <div class="col-lg-6">
                     <img src="https://www.touchdynamic.com/wp-content/uploads/2014/05/bigstock-Restaurant-manager-standing-in-52078486.jpg"
                          alt="img" class="aboutus__img">
                 </div>
             </div>
+        </div>
+    </section>
+    <section class="info" style="margin-bottom: 50px;">
+        <div class="container">
+            <h2>Доставка пиццы в Нижнем Новгороде</h2>
+            <p>Любите пиццу? Тогда Вас обязательно порадует разнообразие вкусов от пиццерии Domino’s Pizza в Нижнем Новгороде. Классическая «Маргарита», фирменная «Домино`с», вегетарианская Веджи Fit & Fresh, острая «Диабло», экзотическая «Гавайская» – и это только начало списка, в котором каждый найдет свое любимое сочетание.
+            </p>
+            <h3>Безупречный вкус с доставкой</h3>
+            <p>Вам не придется выходить куда-то, чтобы купить любимое блюдо. Закажите онлайн выбранную пиццу с доставкой на дом или в офис, и в течение получаса курьер привезет Вам заказ. Доставка в пиццериях Domino’s осуществляется бесплатно. Вы можете выбрать большую пиццу (33 см) или варианты поменьше (20 см и 28 см). Кроме того, у Вас будет возможность внести изменения в начинку по своему вкусу – что-то добавить или убрать. При желании можно включить в заказ соус для бортиков – пикантный барбекю, пряный карри, густой сырный или классический томатный. Наша пиццерия предлагает и другие блюда: вкусные закуски и салаты, нежные десерты и напитки. На сайте представлены их подробные описания вместе с красочными фотографиями.
+            </p>
+            <h3>Как мы готовим Вашу пиццу</h3>
+            <p>В международной сети пиццерий Domino’s Pizza делают пиццу по классическим и авторским рецептам только из высококачественных ингредиентов. После получения заказа наши пиццамейкеры вручную замешивают нежное тесто из муки высшего сорта, а затем выкладывают на него выбранную Вами начинку с классическим сыром моцарелла и отправляют будущую пиццу в печь. Специальные мощные духовки выпекают пиццу именно так, как требуется, – до хрустящей корочки и нежной сердцевины всего за 6-7 минут.</p>
+            <h3>Доставка</h3>
+            <p>Курьер заранее продумывает маршрут, чтобы быстро доставить заказ Вам домой или в офис. Вы получите пиццу еще горячей, не позже чем через 30 мин. Мы настолько уверены в себе, что обещаем карту гарантии на получение бесплатной пиццы среднего размера, если Вам придется ждать дольше. Нам дороги наши клиенты, поэтому мы готовим для Вас с радостью и любовью! Заказывайте блюда в пиццериях Domino’s Pizza, и мы накормим Вас вкусно, быстро и недорого.</p>
         </div>
     </section>
     <section class="delivery">
@@ -101,111 +115,6 @@
             </div>
         </div>
     </section>
-{{--    <footer class="footer">--}}
-{{--        <div class="footer__header">--}}
-{{--            <div class="container">--}}
-{{--                <div class="row">--}}
-{{--                    <div class="col-6">--}}
-{{--                        <ul class="footer__contact">--}}
-{{--                            <div class="footer__contactn__title">Контакты</div>--}}
-{{--                            <li><a href="#" class="footer__link-ikon">Телефон: +7 910 124 26 18</a></li>--}}
-{{--                            <li>Адресс: New York 11673</li>--}}
-{{--                            <li>Время : Понидельник - Воскресенье с 8:00 по 21:00</li>--}}
-{{--                        </ul>--}}
-{{--                    </div>--}}
-{{--                    <div class="col-6">--}}
-{{--                        <ul class="footer__contact">--}}
-{{--                            <div class="footer__contactn__title">Соцсети</div>--}}
-{{--                            <li><a href="#" class="footer__link-ikon"><i class="fa fa-instagram" aria-hidden="true"></i> Инстограм</a></li>--}}
-{{--                            <li><a href="#" class="footer__link-ikon"><i class="fa fa-vk" aria-hidden="true"></i> Вконтакте</a></li>--}}
-{{--                            <li><a href="#" class="footer__link-ikon"><i class="fa fa-youtube" aria-hidden="true"></i> Ютуб--}}
-{{--                                </a></li>--}}
-{{--                            <li><a href="#" class="footer__link-ikon"><i class="fa fa-envelope-o" aria-hidden="true"></i> Почта--}}
-{{--                                </a></li>--}}
-{{--                        </ul>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        Все права зашишены--}}
-{{--    </footer>--}}
-    <footer id="footer" class="footer-1">
-        <div class="main-footer widgets-dark typo-light">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="widget subscribe no-box">
-                            <h5 class="widget-title">COMPANY NAME<span></span></h5>
-                            <p>About the company, little discription will goes here.. </p>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="widget no-box">
-                            <h5 class="widget-title">Quick Links<span></span></h5>
-                            <ul class="thumbnail-widget">
-                                <li>
-                                    <div class="thumb-content"><a href="#.">Get Started</a></div>
-                                </li>
-                                <li>
-                                    <div class="thumb-content"><a href="#.">Top Leaders</a></div>
-                                </li>
-                                <li>
-                                    <div class="thumb-content"><a href="#.">Success Stories</a></div>
-                                </li>
-                                <li>
-                                    <div class="thumb-content"><a href="#.">Event/Tickets</a></div>
-                                </li>
-                                <li>
-                                    <div class="thumb-content"><a href="#.">News</a></div>
-                                </li>
-                                <li>
-                                    <div class="thumb-content"><a href="#.">Lifestyle</a></div>
-                                </li>
-                                <li>
-                                    <div class="thumb-content"><a href="#.">About</a></div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="widget no-box">
-                            <h5 class="widget-title">Get Started<span></span></h5>
-                            <p>Get access to your full Training and Marketing Suite.</p>
-                            <a class="btn" href="#." target="_blank">Register Now</a>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-
-                        <div class="widget no-box">
-                            <h5 class="widget-title">Contact Us<span></span></h5>
-
-                            <p><a href="mailto:info@domain.com" title="glorythemes">info@domain.com</a></p>
-                            <ul class="social-footer2">
-                                <li class=""><a title="youtube" target="_blank" href="/"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-                                <li class=""><a href="/" target="_blank" title="Facebook"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
-                                <li class=""><a href="/" target="_blank" title="Twitter"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                <li class=""><a title="instagram" target="_blank" href="/"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <p>Copyright Company Name © 2016. All rights reserved.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    @include('part.footer')
 @endsection
 

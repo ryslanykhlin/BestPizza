@@ -61,3 +61,36 @@
         font-size: 36px;
     }
 }
+
+.minus {
+    cursor: pointer;
+    width:20px;
+    float:left;
+    text-align:center;
+
+}
+.plus {
+    cursor: pointer;
+    width:20px;
+    float:right;
+    text-align:center;
+}
+
+.inp_price {
+    width:40px;
+    text-align:center;
+    border:none;
+    border-left:1px solid gray;
+    border-right:1px solid gray;
+}
+
+.count_box {
+    width:85px;
+    border:1px solid gray;
+}
+
+.basket__table_dn{
+    display: none;
+}
+
+@import "part/footer";

@@ -11,6 +11,11 @@ class orderController extends Controller
 {
     public function index(Request $request)
     {
+        $this->validate($request,[
+           'tell' => 'required',
+           'name' => 'required|min:2|max:20',
+           'adress' => 'required|min:10',
+        ]);
         orders::create([
             'tell' => $request->input('tell'),
             'name' => $request->input('name'),

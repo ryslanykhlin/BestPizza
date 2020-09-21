@@ -33,6 +33,9 @@ Route::name('auth.')->group(function () {
 Route::get('account',[\App\Http\Controllers\accountController::class, 'index'])
     ->middleware('auth')
     ->name('account');
+Route::get('account/logout',[\App\Http\Controllers\accountController::class, 'logout'])
+    ->middleware('auth')
+    ->name('account.logout');
 
 //adminPanel
 Route::get('/admin',function (){

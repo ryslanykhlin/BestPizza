@@ -13,5 +13,6 @@
 <body>
     @yield('content')
 <script src="{{asset('/js/app.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 </body>
 </html>
