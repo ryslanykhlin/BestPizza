@@ -40287,7 +40287,6 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 $(document).ready(function () {
   //nav and burger
   if ($(window).scrollTop() >= 200) {
-    console.log('работает');
     $('.nav__shell').addClass('scroll__nav');
     $('.nav__shell').addClass('bg__dark');
   }
@@ -40314,11 +40313,14 @@ $(document).ready(function () {
     $('.navbar__ul').toggleClass('navbar__burger_active');
   }); //basket page
 
-  if (JSON.parse(localStorage.getItem('basket')).length !== 0 || localStorage.getItem('basket') !== null) {
+  if (localStorage.getItem('basket') === null || JSON.parse(localStorage.getItem('basket')).length === 0) {
+    $('.basket__title').removeClass('basket__table_dn');
+    $('.basket__table').addClass('basket__table_dn');
+  } else {
     $('.basket__title').addClass('basket__table_dn');
-    $('.basket__table').removeClass('basket__table_dn');
     JSON.parse(localStorage.getItem('basket')).forEach(function (item, index, arr) {
-      var str = "<tr>\n                <th scope=\"row\">".concat(index, "</th>\n                <td>").concat(arr[index]['title'], "</td>\n                <td>").concat(arr[index]['price'], "</td>\n                <td>").concat(arr[index]['count'], "</td>\n                <td><a href=\"/account\" type=\"button\" class=\"btn btn-danger delete-basket\" data-delete=\"").concat(index, "\">\u0423\u0434\u0430\u043B\u0438\u0442\u044C</a></td>\n            </tr>");
+      var price = arr[index]['price'] * arr[index]['count'];
+      var str = "<tr>\n                <th scope=\"row\">".concat(index, "</th>\n                <td>").concat(arr[index]['title'], "</td>\n                <td class='price__td'>").concat(price, "</td>\n                <td>").concat(arr[index]['count'], "</td>\n                <td><a href=\"/account\" type=\"button\" class=\"btn btn-danger delete-basket\" data-delete=\"").concat(index, "\">\u0423\u0434\u0430\u043B\u0438\u0442\u044C</a></td>\n            </tr>");
       $('.tbode__table').before(str);
     });
   } //add basket
@@ -40362,15 +40364,22 @@ $(document).ready(function () {
   $("#inputtell").mask("+7(999)-999-9999", {
     showMaskOnHover: true
   }); //form account
-  // console.log(JSON.stringify())
 
-  console.log(localStorage.getItem('basket'));
-
-  if (JSON.parse(localStorage.getItem('basket')).length === 0 || localStorage.getItem('basket') === null) {
+  if (localStorage.getItem('basket') === null || JSON.parse(localStorage.getItem('basket')).length === 0) {
     $('.account-form').addClass('disabled');
     $('.account-form').attr('disabled', 'disabled');
     $('.basket__title').removeClass('basket__table_dn');
     $('.basket__table').addClass('basket__table_dn');
+  }
+
+  var summ = 0;
+  $('.price__td').each(function () {
+    console.log($(this).html());
+    summ += parseInt($(this).html());
+  });
+
+  if (summ > 0) {
+    $('.title__price').html('Обшая цена ' + summ + ' Р');
   }
 });
 

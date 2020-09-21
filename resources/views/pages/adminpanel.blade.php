@@ -14,6 +14,15 @@
             <input type="number" class="form-control" id="exampleInputPassword1" name="price">
         </div>
         <div class="form-group">
+            <label for="inputState">State</label>
+            <select id="inputState" class="form-control" name="category">
+                <option selected value="Сырная">Сырная</option>
+                <option value="грибная">Грибная</option>
+                <option value="Мясная">Мясная</option>
+                <option value="Рыбная">Рыбная</option>
+            </select>
+        </div>
+        <div class="form-group">
             <label for="exampleFormControlTextarea1">Описание</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descr"></textarea>
         </div>

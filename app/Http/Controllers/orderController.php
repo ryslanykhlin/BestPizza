@@ -20,7 +20,7 @@ class orderController extends Controller
             'tell' => $request->input('tell'),
             'name' => $request->input('name'),
             'adress' => $request->input('adress'),
-            'comments' => $request->input('comments')
+            'comments' => $request->input('comments') ?? ''
         ]);
 
         return redirect()->home();

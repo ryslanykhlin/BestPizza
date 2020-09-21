@@ -11001,7 +11001,7 @@ a.text-dark:focus {
 }
 
 .nav__link:hover {
-  color: white;
+  color: #ff454f;
   text-decoration: none;
 }
 
@@ -11258,7 +11258,7 @@ a.text-dark:focus {
 }
 
 .navbar__link:hover {
-  color: white;
+  color: #ff454f;
   text-decoration: none;
 }
 
@@ -11428,6 +11428,24 @@ a.text-dark:focus {
 
 .basket__table_dn {
   display: none;
+}
+
+.card {
+  min-width: 220px;
+  max-width: 220px;
+}
+
+@media (max-width: 1200px) {
+  .filtre {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 30px;
+  }
+
+  .card {
+    min-width: 100%;
+    max-width: 100%;
+  }
 }
 
 /* Main Footer */

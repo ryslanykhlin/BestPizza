@@ -17,6 +17,8 @@
             </tbody>
         </table>
         <h2 class="basket__title">Корзина Пуста</h2>
+        <hr>
+        <h2 class="title__price"></h2>
     </div>
     <section class="order" style="margin-top: 30px;">
         <h2 style="text-align: center">Оформить заказ</h2>

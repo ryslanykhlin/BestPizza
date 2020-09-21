@@ -18,9 +18,25 @@ class productSeeder extends Seeder
         {
             DB::table('products')->insert([
                 "title" => "product".$i,
+                'category' =>   $this->randCategory(rand(1,4)),
                 "description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolores ducimus eum id laborum minus odit pariatur quos vel voluptates.",
                 "price" => (double)rand(50,1000)
             ]);
+        }
+    }
+
+    protected function randCategory($randinteger)
+    {
+        switch ($randinteger)
+        {
+            case 1:
+                return "Сырная";
+            case 2:
+                return "Грибная";
+            case 3:
+                return "Рыбная";
+            case 4:
+                return "Мясная";
         }
     }
 }

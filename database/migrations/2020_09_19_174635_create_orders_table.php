@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->string('tell');
             $table->string('name');
             $table->string('adress');
-            $table->string('comments');
+            $table->string('comments')->nullable();
             $table->timestamps();
         });
     }
